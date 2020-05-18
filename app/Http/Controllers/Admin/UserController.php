@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Repositories\Constracts\UserRepositoryInterface;
-use Illuminate\Support\Facades\Hash;
+use App\Repositories\Contracts\UserInterface;
 use App\Http\Requests\UserFormRequest;
 use App\Services\UserService;
 
@@ -14,7 +12,7 @@ class UserController extends Controller
     protected $userRepository;
     protected $userService;
     
-    public function __construct(UserRepositoryInterface $userRepository, UserService $userService)
+    public function __construct(UserInterface $userRepository, UserService $userService)
     {
         $this->userRepository = $userRepository;
         $this->userService = $userService;
@@ -80,18 +78,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $id, $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
-        ];
+        $this->userService->update($id, $request);
 
-        $this->userRepository->update($id, $data);
-
-        return redirect('/admin/users');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -103,6 +94,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->userRepository->delete($id);
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index');
     }
 }

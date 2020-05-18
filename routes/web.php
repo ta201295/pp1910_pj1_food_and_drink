@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('web.index');
 });
+Route::get('/account', function () {
+    return view('web.account.profile');
+});
 
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/register', 'RegisterController@showRegistrationForm')->name('register');;
@@ -23,4 +26,6 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/users/login', 'LoginController@login');
     Route::get('/users/logout', 'LogoutController@logout')->name('logout');
+    Route::post('/user/{id}/change_pass', 'ChangePasswordController@change')->name('change_password');
+    Route::get('/user/{id}/change_pass', 'ChangePasswordController@change1');
 });

@@ -26,12 +26,12 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
-                    <td>{{ $product->category->name }}</td>
+                    <td>{{ $product->category_id }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
-                        <a href="{{route('admin.products.edit', ['product_id' => $user->id])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.products.delete', ['product_id' => $user->id])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="{{route('admin.products.edit', ['product_slug' => $product->slug])}}"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin.products.delete', ['product_id' => $product->id])}}"><i class="fa fa-trash" ></i></a>
                     </td>
                 </tr>
             @endforeach

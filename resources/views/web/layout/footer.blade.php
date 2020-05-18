@@ -1,88 +1,123 @@
-<section id="footer_widget" class="footer_widget">
-    <div class="container">
-        <div class="row">
-            <div class="footer_widget_content text-center">
-                <div class="col-md-4">
-                    <div class="single_widget wow fadeIn" data-wow-duration="2s">
-                        <h3>Take it easy with location</h3>
-
-                        <div class="single_widget_info">
-                            <p>112-Legere ancillae vix ne.
-
-                                <span>Te elit putent propriae eum,</span>
-                                <span>aliquip nominati</span>
-                                <span class="phone_email">phone: 00 000 000</span>
-                                <span>Email: support@templatemela.com</span></p>
+<footer class="footer">
+    <div class="subscribe-now line">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5 col-md-6">
+                    <div class="subscribe-newsletter">
+                        <div class="sub-text">
+                            <p>Connect with us for update and offers.</p>
                         </div>
-
-                        <div class="footer_socail_icon">
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                            <a href=""><i class="fa fa-pinterest-p"></i></a>
-                            <a href=""><i class="fa fa-youtube"></i></a>
-                            <a href=""><i class="fa fa-phone"></i></a>
-                            <a href=""><i class="fa fa-camera"></i></a>
-                        </div>
+                        <form>
+                            <input class="input-subscribe" name="newsletter" type="text" placeholder="Enter your email address">
+                            <div class="subscribe-btn">							
+                                <div class="s-n-btn">
+                                    <button class="newsletter-btn btn-link">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="single_widget wow fadeIn" data-wow-duration="4s">
-                        <h3>Take it easy with location</h3>
-
-                        <div class="single_widget_info">
-                            <p><span class="date_day">Monday To Friday</span>
-                                <span>8:00am to 10:00pm(Breakfast)</span>
-                                <span>11:00am to 10:00pm(Lunch/Diner)</span>
-
-                                <span class="date_day">Saturday & Sunday</span>
-                                <span>10:00am to 11:00pm(Brunch)</span>
-                                <span>11:00am to 12:00pm(Lunch/Dinner)</span></p>
+                <div class="col-lg-2 col-md-3">
+                    <div class="language">	
+                        <form method="post" enctype="multipart/form-data" id="form-language">
+                        <div class="btn-group open">
+                            <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
+                                <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">English</a></li>
+                                <li><a href="javascript:;">Spanish</a></li>
+                                <li><a href="javascript:;">Hindi</a></li>
+                                <li><a href="javascript:;">Punjabi</a></li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="single_widget wow fadeIn" data-wow-duration="5s">
-                        <h3>Take it easy with location</h3>
-
-                        <div class="single_widget_form text-left">
-                            <form action="#" id="formid">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="first name" required="">
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject">
-                                </div> <!-- end of form-group -->
-
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
-                                </div>
-
-                                <input type="submit" value="click here" class="btn btn-primary">
-                            </form>	
-                        </div>
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-<footer id="footer" class="footer">
-    <div class="container text-center">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="copyright wow zoomIn" data-wow-duration="3s">
-                    <p>Made with <i class="fa fa-heart"></i> by <a href="http://bootstrapthemes.co">Bootstrap Themes</a>2016. All Rights Reserved</p>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <div class="img-title">
+                    <a href="index.html"><img src="images/logo-2.svg" alt=""></a>
                 </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum leo at finibus ornare. 
+                Aliquam gravida condimentum neque, vel ultrices purus dignissim a. </p>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="link-title">
+                    <h4>About Natto</h4>
+                    <ul class="links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="our_blog.html">Blog</a></li>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>					
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <div class="link-title">
+                    <h4>Business</h4>
+                    <ul class="links">
+                        <li><a href="add_restaurant.html">Add a Restaurant</a></li>
+                        <li><a href="#">Buniess Order Guidelines</a></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="#">Book</a></li>
+                        <li><a href="#">Trace</a></li>
+                        <li><a href="#">Advertise</a></li>
+                    </ul>
+                </div>					
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <div class="link-title">
+                    <h4>Partner With Us</h4>
+                    <ul class="links">
+                        <li><a href="add_restaurant.html">For Restaurants</a></li>
+                        <li><a href="add_driver.html">For Driver</a></li>							
+                    </ul>
+                    <div class="social-btns">
+                        <a href="#"><div class="social-btn soc-btn"><i class="fab fa-facebook-f"></i></div></a>
+                        <a href="#"><div class="social-btn soc-btn"><i class="fab fa-twitter"></i></div></a>
+                        <a href="#"><div class="social-btn soc-btn"><i class="fab fa-instagram"></i></div></a>
+                        <a href="#"><div class="social-btn soc-btn"><i class="fab fa-linkedin-in"></i></div></a>
+                        <a href="#"><div class="social-btn soc-btn"><i class="fab fa-youtube"></i></div></a>
+                    </div>
+                </div>					
+            </div>				
+        </div>
+    </div>
+    <div class="privacy-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="privacy-terms">
+                        <ul>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="cards">
+                        <img src="images/cards.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="copyright-text">
+                    <i class="far fa-copyright"></i>Copyright 2019 <a href="index.html">Natto</a> by Gambol. All Rights Reserved.
+                    </div>
+                </div>			
             </div>
         </div>
     </div>

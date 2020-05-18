@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
+use App\Models\Rate;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -11,9 +14,10 @@ class Product extends Model
         'name', 
         'image', 
         'price', 
-        'side', 
+        'size', 
         'description', 
-        'category_id', 
+        'category_id',
+        'slug',
     ];
 
     public function orderDetails()

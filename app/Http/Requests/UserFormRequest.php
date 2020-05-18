@@ -3,13 +3,13 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Repositories\Constracts\UserRepositoryInterface;
+use App\Repositories\Contracts\UserInterface;
 
 class UserFormRequest extends FormRequest
 {
     protected $userRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct(UserInterface $userRepository)
     {
         $this->userRepository = $userRepository;
     }

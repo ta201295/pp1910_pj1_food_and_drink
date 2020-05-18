@@ -1,60 +1,54 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Food and Restorent One page Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!DOCTYPE html>
+<html lang="en">
 
-        <link rel="stylesheet" href="template_web/css/bootstrap.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="template_web/css/font-awesome.min.css">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+<!-- Mirrored from gambolthemes.net/natto-new-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 07:31:29 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<!-- Favicon -->
+	<link href="template_web/images/fav.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <title>Natto | Home </title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="template_web/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="template_web/css/style.css" rel="stylesheet">
+	<link href="template_web/css/responsive.css" rel="stylesheet">
+	<link href="template_web/css/mega.menu.css" rel="stylesheet">
+	<link href="template_web/css/owlslider.css" rel="stylesheet">
+    
+	<!-- Owl Carousel for this template-->
+	<link href="template_web/vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
+	<link href="template_web/vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+	
+    <!-- Fontawesome styles for this template-->
+    <link href="template_web/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body oncontextmenu="return false;">
+      
+    @include('web.layout.topbar')
+
+    @yield('content')
+
+    @include('web.layout.footer')
+
+    <!--Bootstrap core JavaScript-->
+    <script src="template_web/vendor/jquery/jquery.min.js"></script>
+    <script src="template_web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--Core plugin JavaScript-->
+    <script src="template_web/vendor/jquery-easing/jquery.easing.min.js"></script>
+	 <!--Assect scripts for this page-->
+	<script src="template_web/vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="template_web/js/owlslider.js"></script>
+	
+  </body>
 
 
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="template_web/css/animate/animate.css" />
-        <link rel="stylesheet" href="template_web/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="template_web/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="template_web/css/responsive.css" />
-
-        <script src="template_web/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        @include('web.layout.topbar')
-
-        @include('web.layout.slider')
-
-        @include('web.layout.about')
-
-        @yield('content')
-
-        @include('web.layout.footer')
-		
-		<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>		
-
-
-        <script src="template_web/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="template_web/js/vendor/bootstrap.min.js"></script>
-
-        <script src="template_web/js/jquery-easing/jquery.easing.1.3.js"></script>
-        <script src="template_web/js/wow/wow.min.js"></script>
-        <script src="template_web/js/plugins.js"></script>
-        <script src="template_web/js/main.js"></script>
-    </body>
+<!-- Mirrored from gambolthemes.net/natto-new-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 07:32:43 GMT -->
 </html>

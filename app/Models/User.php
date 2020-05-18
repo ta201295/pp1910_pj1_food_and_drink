@@ -22,6 +22,7 @@ class User extends Authenticatable
         'avatar',
         'password', 
         'role_id',
+        'address',
     ];
 
     /**
@@ -48,6 +49,11 @@ class User extends Authenticatable
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
 
     public function avatar()

@@ -4,20 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use App\Http\Requests\CreateProductFormRequest;
-use App\Models\Product;
+use App\Http\Requests\ProductFormRequest;
 use App\Models\ProductImage;
 use App\Models\Category;
-use App\Repositories\Contracts\ProductInterface as ProductInterface;
+use App\Repositories\Contracts\CategoryInterface;
+use App\Repositories\Contracts\ProductInterface;
+use App\Services\ProductService;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    protected $productRepository;
+    protected $productRepository, $categoryRepository;
+    protected $productService;
 
-    public function __construct(ProductInterface $product)
+    public function __construct(ProductInterface $productRepository, CategoryInterface $categoryRepository, ProductService $productService)
     {
-        $this->productRepository = $product;
+        $this->productRepository = $productRepository;
+
+        $this->categoryRepository = $categoryRepository;
+
+        $this->productService = $productService;
     }
 
     /**
@@ -27,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = $this->productRepository->getAll();
+        $products = $this->productRepository->getAll();
 
         return view('admin.products.index', compact('products'));
     }
@@ -39,7 +45,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = $this->categoryRepository->getAll();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -48,9 +56,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
-        //
+        $this->productService->create($request);
+
+        return redirect()->back();
     }
 
     /**
@@ -70,9 +80,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $product = $this->productRepository->findBySlug($slug);
+        $categories = Category::all();
+        $product_images = ProductImage::whereProductId($product->id)->pluck('image');
+
+        return view('admin.products.edit',
+            compact(
+                'product',
+                'categories',
+            )
+        );
     }
 
     /**
@@ -82,9 +101,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $this->productService->update($request, $slug);
+
+        return redirect('/admin/products');
     }
 
     /**
@@ -93,8 +114,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $this->productRepository->deleteBySlug($slug);
+
+        return redirect()->route('admin.products.index');
     }
+
+    // public function storeImage(Request $request)
+    // {
+    //     $response = $this->productRepository->storeImage($request);
+
+    //     return response()->json($resqonse);
+    // }
 }

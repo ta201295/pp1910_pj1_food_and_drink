@@ -19,7 +19,7 @@ class AdminsTableSeeder extends Seeder
                 'password' => Hash::make('admin'), // password
                 'email' => 'admin@admin.com',
                 'role_id' => '1',
-                'avatar' => ''
+                'avatar' => 'admin.jpg'
             ],
         ]);
     }
