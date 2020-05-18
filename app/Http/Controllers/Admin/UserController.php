@@ -4,24 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Repositories\Constracts\UserRepositoryInterface;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserFormRequest;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
     protected $userRepository;
-
-    public function __construct(UserRepositoryInterface $userRepository)
+    protected $userService;
+    
+    public function __construct(UserRepositoryInterface $userRepository, UserService $userService)
     {
         $this->userRepository = $userRepository;
+        $this->userService = $userService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = $this->userRepository->getAll();
@@ -44,18 +42,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
-            'avatar' => 'image.jpg',
-            'role_id' => '2',
-        ];
-        
-        $this->userRepository->create($data);
+        $this->userService->create($request);
 
         return redirect()->back();
     }

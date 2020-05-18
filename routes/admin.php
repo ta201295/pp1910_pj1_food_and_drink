@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
         Route::get('/{user_id}/delete', 'UserController@destroy')->name('delete');
     });
 
-    Route::group(['as' => 'products.', 'prefix' => '/products'], function () {
-        Route::get('/', 'ProductController@index')->name('index');
-    });
+    // Route::group(['as' => 'products.', 'prefix' => '/products'], function () {
+    //     Route::get('/', 'ProductController@index')->name('index');
+    // });
 });

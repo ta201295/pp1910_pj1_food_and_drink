@@ -12,7 +12,6 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return User::class;
     }
 
-
     // public function update($request, $id)
     // {
     //     return User::whereId($id)->update([
