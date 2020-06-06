@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckoutFormRequest;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Rate;
 use App\Repositories\Contracts\ProductInterface;
 use App\Services\ProductService;
 use App\Traits\ShoppingCartTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -90,5 +92,14 @@ class ProductController extends Controller
         $products = Product::where('name', 'like', '%'.$request->search.'%')->get();
 
         return view('web.products.search', compact('products'));
+    }
+
+    public function productStar(Request $request) {
+        $rating = new Rate();
+        $rating->user_id = Auth::user()->id;
+        $rating->point = $request->input('point');
+        $product = Product::find($request->input('id'));
+        $product->rates()->save($rating);
+        return response()->json(['rating' => $rating->point]);
     }
 }

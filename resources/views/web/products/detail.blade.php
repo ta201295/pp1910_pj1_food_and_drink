@@ -34,19 +34,18 @@
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
-							<div class="bagde-dt">
-								<div class="partner-badge">
-									Partner
-								</div>											
+						<form class="foodstars" action="{{route('product_star')}}" id="addStar" method="POST">
+       					{{ csrf_field() }}
+							<div class="ratings">
+								<input type="radio" name="point" id="rating" value="1">
+								<input type="radio" name="point" id="rating" value="2">
+								<input type="radio" name="point" id="rating" value="3">
+								<input type="radio" name="point" id="rating" value="4">
+								<input type="radio" name="point" id="rating" value="5">
 							</div>
-							<div class="resto-review-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>								
-								<span>4.5/5</span>									
-							</div>
+							<br/>							
+							<span class="info"></span>
+						</form>									
 						</div>
 					</div>
 				</div>

@@ -13,7 +13,7 @@
                     <div class="col-md-8">
                         <div class="topbar-right text-center text-md-right">
                             <ul class="list-inline">									
-                                <li><a href="#"><i class="fas fa-shopping-cart"></i>@lang('Orders') <span class="badge badge-secondary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a></li>										
+                                <li><a href="{{ route('product_cart') }}"><i class="fas fa-shopping-cart"></i>@lang('Orders') <span class="badge badge-secondary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a></li>										
                                 @if (Auth::guest())
                                     <li><a href="{{ route('login') }}">@lang('Login')</a></li>
                                 @else                                        

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\CategoryInterface;
 use  App\Http\Requests\CategoryFormRequest;
+use App\Models\Category;
 use App\Services\CategoryService;
 
 class CategoryController extends Controller
@@ -96,9 +97,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $this->categoryRepository->delete($id);
-
+    {   
+        $category = Category::find($id);
+        $category->delete();
         return redirect()->route('admin.categories.index');
     }
 }

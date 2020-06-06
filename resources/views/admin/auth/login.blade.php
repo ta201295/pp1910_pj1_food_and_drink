@@ -35,7 +35,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Xin Chào</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">{{__('Welcome')}}</h1>
                                     </div>
                                     @if(session('status'))
                                     <p class="txt-danger">{{session('status')}}</p>
@@ -43,18 +43,18 @@
                                     <form class="user" method="POST" action="{{route('admin.auth.login')}}">
                                         {{ csrf_field() }}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Nhập địa chỉ email..." name="email">
+                                            <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Input your email..." name="email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Mật khẩu" name='password'>
+                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Password..." name='password'>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me">
-                                                <label class="custom-control-label" for="customCheck">Ghi nhớ đăng nhập</label>
+                                                <label class="custom-control-label" for="customCheck">{{__('Remember me!')}}</label>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng nhập">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="{{__('Login')}}">
                                     </form>
                                     <hr>
                                 </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +23,7 @@
     <link href="{{url('template_web/css/thumbnail.slider.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/datepicker.css')}}" rel="stylesheet">
     <link href="{{url('template_web/css/bootstrap-select.css')}}" rel="stylesheet">
-    <link href="{{url('template_web/css/bootstrap-rating.css')}}" rel="stylesheet">
+    <link href="{{url('template_web/css/rating.css')}}" rel="stylesheet">
     
 	<!-- Owl Carousel for this template-->
 	<link href="{{url('template_web/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
@@ -56,7 +55,7 @@
 	<script src="{{url('template_web/js/thumbnail.slider.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-datepicker.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-select.js')}}"></script>
-	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
+	<script type="text/javascript" src="{{url('template_web/js/rating.js')}}"></script>
 
 	<script>
 	$(document).ready(function(){
@@ -72,6 +71,26 @@
 
 		});
 	});
-	</script>	
+	</script>
+	
+	<script>
+	$('.ratings').rating(function(vote, event){
+		$.ajaxSetup({
+			headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+			}
+		});
+		$.ajax({
+			method: 'POST',
+			url: $(this).attr('action'),
+			data: $(this).serialize(),
+			success: function(data) {
+			  console.log(data);
+			},
+		}).done(function(info){
+			$('.info').html("Your vote: <b>" + info + "</b>")
+		})
+	})
+	</script>
   </body>
 </html>

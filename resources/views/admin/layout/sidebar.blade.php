@@ -2,11 +2,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#"> 
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}"> 
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin</div>
+        <div class="sidebar-brand-text mx-3">{{__('Admin')}}</div>
     </a>
 
     <!-- Divider -->
@@ -14,9 +14,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="#"> 
+        <a class="nav-link" href="{{ route('admin.index') }}"> 
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>{{__('Dashboard')}}</span>
         </a>
     </li>
 
@@ -28,19 +28,27 @@
     Interface
     </div>
 
+    <!-- Order menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-paw"></i>
+            <span>{{__('Order')}}</span>
+        </a>
+    </li>
+
     <!-- Category Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#"> 
+        <a class="nav-link" href="{{ route('admin.categories.index') }}"> 
             <i class="fas fa-fw fa-paw"></i>
-            <span>Category</span>
+            <span>{{__('Category')}}</span>
         </a>
     </li>
 
     <!-- Product Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-comments"></i>
-            <span>Product</span>
+        <a class="nav-link" href="{{ route('admin.products.index') }}">
+            <i class="fas fa-fw fa-tree"></i>
+            <span>{{__('Product')}}</span>
         </a>
     </li>
 
@@ -54,9 +62,9 @@
 
     <!-- Users Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.users.index') }}">
             <i class="fas fa-fw fa-users"></i>
-            <span>Users</span>
+            <span>{{__('Users')}}</span>
         </a>
     </li>
     <!-- Divider -->

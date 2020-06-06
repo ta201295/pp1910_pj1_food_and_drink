@@ -25,7 +25,7 @@ class UserService
         $this->userRepository->create($data);
     }
 
-    public function update(Request $id, $request)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
         $data['password'] = Hash::make($request->get('password'));

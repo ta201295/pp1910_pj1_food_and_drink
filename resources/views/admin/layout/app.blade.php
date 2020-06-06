@@ -17,9 +17,7 @@
   
   <!-- Custom styles for this template-->
   <link href="{{url('template_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-  <link href="{{url('template_admin/js/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{url('template_admin/css/select2.min.css')}}">
-  <link rel="stylesheet" href="{{url('template_admin/css/style.css')}}">
+  <link href="{{url('template_admin/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -79,9 +77,7 @@
   <script src="{{url('template_admin/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{url('template_admin/js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{url('template_admin/js/demo/datatables-demo.js')}}"></script>
-  <script src="{{url('template_admin/js/select2.min.js')}}"></script>
-  <script src="{{url('template_admin/js/sweetalert2@9.js')}}"></script>
-  <script src="{{url('template_admin/js/my-script.js')}}"></script>
+  @yield('stylesheets')
 </body>
 
 </html>

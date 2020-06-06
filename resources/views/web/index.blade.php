@@ -54,7 +54,7 @@
                                 <div class="star">							
                                     <span>4.5</span>
                                     <i class="fas fa-star"></i> 
-                                <div class="comments"><a href="{{ route('product_cart', ['id' => $product->id]) }}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
+                                <div class="comments"><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                                 </div>								
                             </div>
                         </div>  
