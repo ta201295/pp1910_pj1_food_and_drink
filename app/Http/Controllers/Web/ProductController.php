@@ -11,6 +11,7 @@ use App\Repositories\Contracts\ProductInterface;
 use App\Services\ProductService;
 use App\Traits\ShoppingCartTrait;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -53,10 +54,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {   
-        $product = Product::whereSlug($slug)->firstOrFail();
+    public function show(Request $request, $slug)
+    {  if( $request->hasFile('rates') ) {
+            $userId = Auth::user()->id;
+            $product = Product::with('rates')->whereHas('rates', function (Builder $query) use ($userId) {
+                $query->where('user_id', $userId);
+            })->whereSlug($slug)->firstOrFail();
 
+        }else {
+            $product = Product::whereSlug($slug)->firstOrFail();
+        }
+  
         return view('web.products.detail', compact('product'));
     }
 
@@ -95,11 +103,22 @@ class ProductController extends Controller
     }
 
     public function productStar(Request $request) {
-        $rating = new Rate();
-        $rating->user_id = Auth::user()->id;
-        $rating->point = $request->input('point');
-        $product = Product::find($request->input('id'));
-        $product->rates()->save($rating);
-        return response()->json(['rating' => $rating->point]);
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+
+        $rating = Rate::updateOrCreate(
+            [
+                'user_id' => $data['user_id'],
+                'product_id' => $data['product_id'],
+            ],
+            $data
+        );
+
+        return response()->json(['point' => $rating->point]);
+    }
+
+    public function getStar($slug) {
+        $products = Product::whereSlug($slug)->with('rates')->get();
+        return $products->rates->avg('point');
     }
 }

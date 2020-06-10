@@ -11,7 +11,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="all-meal">
                     <div class="top">
-                        <a href="meal_detail.html"><div class="bg-gradient"></div></a>
+                        <a href="{{route('product_detail', ['slug' => $product->slug])}}"><div class="bg-gradient"></div></a>
                         <div class="top-img">
                             <img src="/storage/img/{{$product->image}}" alt="">
                         </div>

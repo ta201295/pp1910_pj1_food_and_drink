@@ -40,7 +40,6 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/checkout', 'ProductController@getCheckout')->name('checkout');
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout');
     Route::get('/search', 'ProductController@search')->name('search');
-    Route::post('Rating', 'ProductController@productStar')->name('product_star');
+    Route::post('/rating', 'ProductController@productStar')->name('product_star');
 });
 
-Auth::routes();

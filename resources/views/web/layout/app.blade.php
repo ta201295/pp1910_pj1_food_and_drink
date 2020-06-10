@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+	<meta name="author" content="">
+	
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
 	<!-- Favicon -->
 	<link href="{{url('template_web/images/fav.png')}}" rel="shortcut icon" type="image/x-icon"/>
@@ -34,7 +36,7 @@
 	
 </head>
 
-<body oncontextmenu="return false;">
+<body>
       
     @include('web.layout.topbar')
 
@@ -75,20 +77,23 @@
 	
 	<script>
 	$('.ratings').rating(function(vote, event){
+		let request = {
+			point: vote,
+			product_id: $('#product_id').val()
+		}
+
 		$.ajaxSetup({
 			headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
-		});
+		})
 		$.ajax({
 			method: 'POST',
-			url: $(this).attr('action'),
-			data: $(this).serialize(),
+			url: '/rating',
+			data: request,
 			success: function(data) {
 			  console.log(data);
 			},
-		}).done(function(info){
-			$('.info').html("Your vote: <b>" + info + "</b>")
 		})
 	})
 	</script>

@@ -35,16 +35,16 @@
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
 						<form class="foodstars" action="{{route('product_star')}}" id="addStar" method="POST">
-       					{{ csrf_field() }}
+						   {{ csrf_field() }}
+						   <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
 							<div class="ratings">
-								<input type="radio" name="point" id="rating" value="1">
-								<input type="radio" name="point" id="rating" value="2">
-								<input type="radio" name="point" id="rating" value="3">
-								<input type="radio" name="point" id="rating" value="4">
-								<input type="radio" name="point" id="rating" value="5">
+								@for($i = 1; $i < 6; $i++)
+									<input type="radio" name="point" id="rating" 
+									class="@if($product->rates[0]->point >= $i) fullStar  @endif" value="{{ $i }}">
+								@endfor
 							</div>
-							<br/>							
-							<span class="info"></span>
+							<br/>	
+								@lang('Average Rating') : <span id='avgrating_'> {{  $product->rates->avg('point') }} </span>
 						</form>									
 						</div>
 					</div>
