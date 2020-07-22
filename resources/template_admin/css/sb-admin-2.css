@@ -88,6 +88,11 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+.txt-danger {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
 
 abbr[title],
 abbr[data-original-title] {

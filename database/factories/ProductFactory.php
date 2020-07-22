@@ -19,5 +19,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'price' => $faker->numberBetween(100000, 10000000),
         'category_id' =>  Category::all()->random()->id,
         'description' => $faker->text,
+        'slug' => $faker->unique()->slug(5),
     ];
 });

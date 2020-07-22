@@ -3,25 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Repositories\Contracts\UserInterface;
+use App\Http\Requests\UserFormRequest;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
     protected $userRepository;
-
-    public function __construct(UserInterface $user)
+    protected $userService;
+    
+    public function __construct(UserInterface $userRepository, UserService $userService)
     {
-        $this->userRepository = $user;
+        $this->userRepository = $userRepository;
+        $this->userService = $userService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = $this->userRepository->getAll();
-
         return view('admin.users.index', compact('users'));
     }
 
@@ -41,11 +40,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        $this->userRepository->create($request);
+        $this->userService->create($request);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Create User Successfully');
     }
 
     /**
@@ -79,11 +78,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $id, $request)
     {
-        $this->userRepository->update($request, $id);
+        $this->userService->update($id, $request);
 
-        return redirect('/admin/users');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -95,6 +94,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->userRepository->delete($id);
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index')->with('success', 'Delete successful');
     }
 }

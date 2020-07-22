@@ -16,5 +16,6 @@ $factory->define(User::class, function (Faker $faker) {
         'avatar' => '/img/avatar ('.$faker->unique()->numberBetween(1, 1000).').jpg',
         'phone' => $faker->phoneNumber,
         'role_id' => '2',
+        'address' => $faker->address
     ];
 });

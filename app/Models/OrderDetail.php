@@ -8,9 +8,9 @@ class OrderDetail extends Model
 {
     protected $table = 'orderDetails';
     protected $fillable = [
-        'product_id', 
-        'order_id', 
-        'quantity', 
+        'product_id',
+        'order_id',
+        'quantity',
         'total_price',
     ];
 
@@ -18,9 +18,9 @@ class OrderDetail extends Model
     {
         return $this->belongTo(OrderDetail::class);
     }
-    
-    public function Product()
+
+    public function product()
     {
-        return $this->belongTo(Product::class);
+        return $this->belongsTo(Product::class, 'id');
     }
 }

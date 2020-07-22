@@ -16,12 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
-        'phone', 
+        'name',
+        'email',
+        'phone',
         'avatar',
-        'password', 
+        'password',
         'role_id',
+        'address',
     ];
 
     /**
@@ -50,6 +51,11 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
+
     public function avatar()
     {
         return $this->hasOne(Image::class, 'avatar', 'id');
@@ -73,5 +79,10 @@ class User extends Authenticatable
     public function rates()
     {
         return $this->hasMany(Rate::class);
+    }
+
+    public function review()
+    {
+        return $this->hasOne(ProductReview::class);
     }
 }

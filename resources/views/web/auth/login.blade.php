@@ -9,14 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Đăng nhập</title>
+  <title>{{__('Login')}}</title>
 
   <!-- Custom fonts for this template-->
   <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{url('template_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="{{url('template_admin/css/sb-admin-2.css')}}" rel="stylesheet">
 
 </head>
 
@@ -37,7 +37,7 @@
                 <div class="col-lg-6">
                     <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
+                        <h1 class="h4 text-gray-900 mb-4">{{__('Login')}}</h1>
                     </div>
                     @if(session('status'))
                         <p class="txt-danger">{{session('status')}}</p>
@@ -45,34 +45,34 @@
                     <form class="user" method="POST" action="{{route('login')}}">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Nhập địa chỉ email..." name="email">
+                            <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Input Email Address..." name="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="password" placeholder="Mật khẩu" name='password'>
+                            <input type="password" class="form-control form-control-user" id="password" placeholder="Password..." name='password'>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-checkbox small">
                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me">
-                                <label class="custom-control-label" for="customCheck">Ghi nhớ đăng nhập</label>
+                                <label class="custom-control-label" for="customCheck">{{__('Remember me!')}}</label>
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng nhập">
+                        <input type="submit" class="btn btn-primary btn-user btn-block" value="{{__('Login')}}">
                     </form>
-                    
+
                     <hr>
-                    <a href="#" class="btn btn-google btn-user btn-block">
-                        <i class="fab fa-google fa-fw"></i> Đăng nhập bằng tài khoản Google
+                    <a href="/login/google" class="btn btn-google btn-user btn-block">
+                        <i class="fab fa-google fa-fw"></i> Đăng nhập bằng Google
                     </a>
-                    <a href="#" class="btn btn-facebook btn-user btn-block">
-                        <i class="fab fa-facebook-f fa-fw"></i> Đăng nhập bằng tài khoản Facebook
+                    <a href="/login/facebook" class="btn btn-facebook btn-user btn-block">
+                        <i class="fab fa-facebook-f fa-fw"></i> Đăng nhập bằng Facebook
                     </a>
                   </form>
                   <hr>
-                  <!-- <div class="text-center">
-                    <a class="small" href="#">Forgot Password?</a>
-                  </div> -->
                   <div class="text-center">
-                    <a class="small" href="{{route('register')}}">Đăng ký tài khoản!</a>
+                    <a class="small" href="#">{{__('Forgot password?')}}</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="{{route('register')}}">{{__('Register')}}</a>
                   </div>
                 </div>
               </div>

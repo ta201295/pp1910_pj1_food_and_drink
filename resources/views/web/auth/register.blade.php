@@ -28,11 +28,11 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block"></div>
+          <div class="col-lg-5 d-none d-lg-block "></div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Tạo tài khoản</h1>
+                <h1 class="h4 text-gray-900 mb-4">@lang('Register')</h1>
               </div>
               @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error }}</p>
@@ -41,36 +41,36 @@
               {{ csrf_field() }}
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 sb-sm-0">
-                    <input type="text" class="form-control form-control-user" name='name' required="" placeholder="Tên" value="{{old('name')}}">
+                    <input type="text" class="form-control form-control-user" name='name' required="" placeholder="Name..." value="{{old('name')}}">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name='phone' required="" placeholder="Số điện thoại" value="{{old('phone')}}">
+                    <input type="text" class="form-control form-control-user" name='phone' required="" placeholder="Phone..." value="{{old('phone')}}">
                   </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-user" name='email' required="" placeholder="Địa chỉ Email..." value="{{old('email')}}">
+                    <input type="text" class="form-control form-control-user" name='email' required="" placeholder="Email Address..." value="{{old('email')}}">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name='password' required="" placeholder="Mật khẩu">
+                    <input type="password" class="form-control form-control-user" name='password' required="" placeholder="Password...">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" name='password_confirmation' required="" placeholder="Nhập lại mật khẩu">
+                    <input type="password" class="form-control form-control-user" name='password_confirmation' required="" placeholder="Repeat Password...">
                   </div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng ký tài khoản">
+                <input type="submit" class="btn btn-primary btn-user btn-block" value="@lang('Register')">
                 <hr>
-                <a href="#" class="btn btn-google btn-user btn-block">
+                {{-- <a href="#" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Đăng ký với tài khoản Google
                 </a>
                 <a href="#" class="btn btn-facebook btn-user btn-block">
                   <i class="fab fa-facebook-f fa-fw"></i> Đăng ký với tài khoản Facebook
                 </a>
               </form>
-              <hr>
+              <hr> --}}
               
               <div class="text-center">
-                <a class="small" href="{{route('login')}}">Bạn đã có tài khoản? Đăng nhập!</a>
+                <a class="small" href="{{route('login')}}">@lang('Already have an account? Login!')</a>
               </div>
               <div class="clearfix"></div>
             </div>
